@@ -1,0 +1,12 @@
+name: Frica Theme
+type: theme
+description: 'Frica Theme for My Website.'
+package: Custom
+core_version_requirement: ^10
+base theme: false
+regions:
+  content: Content
+  right: Right sidebar
+  footer: Footer First
+libraries:
+  - shop/custom-library

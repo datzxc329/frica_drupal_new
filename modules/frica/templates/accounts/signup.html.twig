@@ -1,0 +1,109 @@
+<style>
+  .signup-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .signup-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .center-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="password"],
+  .form-group input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .form-group button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .form-group button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  p a {
+    text-decoration: none;
+    color: #007bff;
+  }
+
+  p a:hover {
+    text-decoration: underline;
+  }
+</style>
+<br><br><br><br>
+<div class="signup-form">
+  <h2>Đăng ký</h2>
+  <form method="POST">
+    <div class="form-group">
+      <label for="username">Tên người dùng:</label>
+      {{ data.form.signup_username }}
+    </div>
+    <div class="form-group">
+      <label for="password">Mật khẩu:</label>
+      {{ data.form.signup_password }}
+    </div>
+    <div class="form-group">
+      <label for="name">Họ và tên đầy đủ:</label>
+      {{ data.form.signup_name }}
+    </div>
+    <div class="form-group">
+      <label for="phone">Số điện thoại:</label>
+      {{ data.form.signup_phone }}
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      {{ data.form.signup_email }}
+    </div>
+    <div class="form-group">
+      <label for="address">Địa chỉ:</label>
+      {{ data.form.signup_address }}
+    </div>
+    <div class="form-group">
+      <div class="btn center-btn">
+        {{ data.form.signup_submit }}
+      </div>
+    </div>
+    {{ data.form.form_id }}
+    {{ data.form.form_build_id }}
+    {{ data.form.form_token }}
+  </form>
+  <p>Bạn đã có tài khoản?</p>
+  <p><a href="{{ url('frica.login') }}">Đăng nhập</a> | <a href="{{ url('frica.forgotpwd') }}">Quên mật khẩu</a></p>
+</div>

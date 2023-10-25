@@ -1,0 +1,16 @@
+
+/*contact button*/
+.send_bt input{
+  width: 100%;
+  float: left;
+  background-color: #ff5d68;
+  color: #fefeff;
+  text-align: center;
+  padding: 10px 0px;
+  font-size: 16px;
+  border-radius: 40px;
+}
+.send_bt input:hover {
+  background-color: #000;
+  color: #fefeff;
+}

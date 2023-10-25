@@ -1,0 +1,12 @@
+<?php
+function employee_theme(): array
+{
+    return [
+        'employee_list' => [
+            'template' => 'employee/list',
+            'variables' => [
+                'data' => []
+            ]
+        ]
+    ];
+}

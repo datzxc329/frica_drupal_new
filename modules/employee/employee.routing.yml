@@ -1,0 +1,27 @@
+employee.add:
+  path: '/employee-data'
+  defaults:
+    _title: 'Employee Details'
+    _form: 'Drupal\employee\Form\EmployeeForm'
+  requirements:
+    _permission: 'access content'
+
+employee.edit:
+  path: '/employee-data/{id}'
+  defaults:
+    _title: 'Employee Details'
+    _form: 'Drupal\employee\Form\EmployeeForm'
+  requirements:
+    _permission: 'access content'
+    id : '[0-9]+' #[0-9]+ bat dau tu 0 va ket hop cac chu so
+
+employee.list:
+  path: '/employee-list'
+  defaults:
+    _controller: '\Drupal\employee\Controller\EmployeeController::list'
+    _title: 'Employee List'
+  requirements:
+    _permission: 'access content'
+
+#  This YAML configuration defines a Drupal route with the path /employee-list, and when users access this path,
+#  it will execute the EmployeeController::list method and display a page titled "Employee List."

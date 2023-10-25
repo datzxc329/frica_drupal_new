@@ -1,0 +1,127 @@
+<?php
+function frica_theme()
+{
+  return [
+    'home' => [
+      'template' => 'home/home',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'contact' => [
+      'template' => 'contact/contact',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'thanks' => [
+      'template' => 'contact/thanks',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'computers' => [
+      'template' => 'computers/computers',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+
+    'man_clothes' => [
+      'template' => 'man_clothes/man_clothes',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'man_clothes_list' => [
+      'template' => 'man_clothes/man_clothes_list',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'woman_clothes' => [
+      'template' => 'woman_clothes/woman_clothes',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'woman_clothes_list' => [
+      'template' => 'woman_clothes/woman_clothes_list',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'mobiles' => [
+      'template' => 'other_products/mobiles',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'cameras' => [
+      'template' => 'other_products/cameras',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'watches' => [
+      'template' => 'other_products/watches',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'kitchens' => [
+      'template' => 'other_products/kitchens',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'sports' => [
+      'template' => 'other_products/sports',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'beauties' => [
+      'template' => 'other_products/beauties',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'product_detail' => [
+      'template' => 'product_detail/product_detail',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'login' => [
+      'template' => 'accounts/login',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'successlogin' => [
+      'template' => 'accounts/successlogin',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'signup' => [
+      'template' => 'accounts/signup',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'successsignup' => [
+      'template' => 'accounts/successsignup',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'cart' => [
+      'template' => 'cart/cart',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+  ];
+}

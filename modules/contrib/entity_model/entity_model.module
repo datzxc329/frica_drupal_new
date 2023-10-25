@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Hook implementations for the Entity Model module.
+ */
+
+use Drupal\entity_model\Field\TranslatableEntityReferenceFieldItemList;
+
+/**
+ * Implements @see hook_entity_type_alter().
+ */
+function entity_model_entity_type_alter(array &$entity_types) {
+  $manager = \Drupal::getContainer()->get('plugin.manager.entity_model.model');
+
+  foreach ($manager->getDefinitions() as $definition) {
+    $entityTypeId = $definition['entity_type'];
+
+    if (!isset($entity_types[$entityTypeId])) {
+      continue;
+    }
+
+    if (isset($definition['bundle'])) {
+      continue;
+    }
+
+    $entity_types[$definition['entity_type']]->setClass($definition['class']);
+  }
+}
+
+/**
+ * Implements @see hook_entity_bundle_info_alter().
+ */
+function entity_model_entity_bundle_info_alter(array &$bundles): void {
+  $manager = \Drupal::getContainer()->get('plugin.manager.entity_model.model');
+
+  foreach ($manager->getDefinitions() as $definition) {
+    $entityTypeId = $definition['entity_type'];
+
+    if (!isset($definition['bundle'])) {
+      continue;
+    }
+
+    $bundle = $definition['bundle'];
+
+    if (!isset($bundles[$entityTypeId][$bundle])) {
+      continue;
+    }
+
+    $bundles[$entityTypeId][$bundle]['class'] = $definition['class'];
+  }
+}
+
+/**
+ * Implements @see hook_field_info_alter().
+ */
+function entity_model_field_info_alter(array &$info): void {
+  $info['entity_reference']['list_class'] = TranslatableEntityReferenceFieldItemList::class;
+}

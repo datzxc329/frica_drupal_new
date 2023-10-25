@@ -1,0 +1,23 @@
+<a href="{{ url('employee.add') }}">Add Employee</a>  {#link add employee#}
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Employee Email</th>
+        <th>Employee ZIP code</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{ employee }}
+    {% for val in data.employee %}
+    <tr>
+        <td><a href="{{ url('employee.edit',{'id': val.id}) }}">{{ val.emp_firstname }}</a></td>
+        <td>{{ val.emp_lastname }}</td>
+        <td>{{ val.emp_email }}</td>
+        <td>{{ val.emp_zipcode }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+</table>

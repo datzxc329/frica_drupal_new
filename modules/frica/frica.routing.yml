@@ -1,0 +1,148 @@
+frica.contact:
+  path: '/contacts'
+  defaults:
+    _controller: '\Drupal\frica\Controller\ContactController::contact'
+    _title: 'Contact'
+  requirements:
+    _permission: 'access content'
+frica.thanks:
+  path: '/thanks'
+  defaults:
+    _controller: '\Drupal\frica\Controller\ContactController::thanks'
+    _title: 'Thanks'
+  requirements:
+    _permission: 'access content'
+frica.computers:
+  path: '/computers'
+  defaults:
+    _controller: '\Drupal\frica\Controller\ComputersController::computers'
+    _title: 'Computers'
+  requirements:
+    _permission: 'access content'
+frica.man_clothes:
+  path: '/man_clothes'
+  defaults:
+    _controller: '\Drupal\frica\Controller\ManClothesController::man_clothes'
+    _title: "Man's Clothes"
+  requirements:
+    _permission: 'access content'
+frica.man_clothes.list:
+  path: '/man_clothes/list'
+  defaults:
+    _controller: '\Drupal\frica\Controller\ManClothesController::man_clothes_list'
+    _title: "Man's Clothes"
+  requirements:
+    _permission: 'access content'
+frica.woman_clothes:
+  path: '/woman_clothes'
+  defaults:
+    _controller: '\Drupal\frica\Controller\WomanClothesController::woman_clothes'
+    _title: "Woman's Clothes"
+  requirements:
+    _permission: 'access content'
+frica.woman_clothes.list:
+  path: '/woman_clothes/list'
+  defaults:
+    _controller: '\Drupal\frica\Controller\WomanClothesController::woman_clothes_list'
+    _title: "Woman's Clothes"
+  requirements:
+    _permission: 'access content'
+frica.product_detail:
+  path: '/product/{idSP}'
+  defaults:
+    _controller: '\Drupal\frica\Controller\ProductDetailController::product_detail'
+    _title: 'Product Details'
+  requirements:
+    _permission: 'access content'
+frica.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\frica\Controller\HomeController::home'
+    _title: 'Home'
+  requirements:
+    _permission: 'access content'
+frica.mobiles:
+  path: '/mobiles'
+  defaults:
+    _controller: '\Drupal\frica\Controller\OtherProductController::mobiles'
+    _title: 'Mobiles'
+  requirements:
+    _permission: 'access content'
+frica.watches:
+  path: '/watches'
+  defaults:
+    _controller: '\Drupal\frica\Controller\OtherProductController::watches'
+    _title: 'Watches'
+  requirements:
+    _permission: 'access content'
+frica.cameras:
+  path: '/cameras'
+  defaults:
+    _controller: '\Drupal\frica\Controller\OtherProductController::cameras'
+    _title: 'Cameras'
+  requirements:
+    _permission: 'access content'
+frica.kitchens:
+  path: '/kitchens'
+  defaults:
+    _controller: '\Drupal\frica\Controller\OtherProductController::kitchens'
+    _title: 'Kitchens'
+  requirements:
+    _permission: 'access content'
+frica.sports:
+  path: '/sports'
+  defaults:
+    _controller: '\Drupal\frica\Controller\OtherProductController::sports'
+    _title: 'Sports'
+  requirements:
+    _permission: 'access content'
+frica.beauties:
+  path: '/beauties'
+  defaults:
+    _controller: '\Drupal\frica\Controller\OtherProductController::beauties'
+    _title: 'Beauties'
+  requirements:
+    _permission: 'access content'
+
+frica.login:
+  path: '/login'
+  defaults:
+    _controller: '\Drupal\frica\Controller\AccountsController::login'
+    _title: 'Login'
+  requirements:
+    _permission: 'access content'
+frica.successlogin:
+  path: '/login/success'
+  defaults:
+    _controller: '\Drupal\frica\Controller\AccountsController::successlogin'
+    _title: 'Login success'
+  requirements:
+    _permission: 'access content'
+frica.signup:
+  path: '/signup'
+  defaults:
+    _controller: '\Drupal\frica\Controller\AccountsController::signup'
+    _title: 'Signup'
+  requirements:
+    _permission: 'access content'
+frica.successsignup:
+  path: '/signup/success'
+  defaults:
+    _controller: '\Drupal\frica\Controller\AccountsController::successsignup'
+    _title: 'Signup success'
+  requirements:
+    _permission: 'access content'
+frica.forgotpwd:
+  path: '/forgotpwd'
+  defaults:
+    _controller: '\Drupal\frica\Controller\AccountsController::forgotpwd'
+    _title: 'Forgot password'
+  requirements:
+    _permission: 'access content'
+frica.cart:
+  path: '/cart'
+  defaults:
+    _controller: '\Drupal\frica\Controller\CartController::cart'
+    _title: 'Cart'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,253 @@
+<!-- banner section start -->
+<style>
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .pagination a {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  .pagination a:hover {
+    background-color: #0056b3;
+  }
+  .current-page {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: #0056b3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+</style>
+<!-- banner section start -->
+<div class="banner_section layout_padding">
+  <div id="my_slider" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="container">
+          <div class="row border_1">
+            <div class="col-md-4">
+              <div class="image_1"><img src="/drupal-10.1.2/themes/shop/images/img-1.png" style="width:100%"></div>
+            </div>
+            <div class="col-md-4">
+              <h1 class="banner_taital">Man Clothes</h1>
+              <div class="buynow_bt active"><a href="{{ url('frica.man_clothes.list') }}">Buy Now</a></div>
+              <div class="contact_bt"><a href="{{ url('frica.contact') }}">Contact Us</a></div>
+            </div>
+            <div class="col-md-4">
+              <div class="image_2"><img src="/drupal-10.1.2/themes/shop/images/img-3.png" style="width:100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row border_1">
+            <div class="col-md-4">
+              <div class="image_1"><img src="/drupal-10.1.2/themes/shop/images/img-1.png" style="width:100%"></div>
+            </div>
+            <div class="col-md-4">
+              <h1 class="banner_taital">Woman Clothes</h1>
+              <div class="buynow_bt active"><a href="{{ url('frica.woman_clothes.list') }}">Buy Now</a></div>
+              <div class="contact_bt"><a href="{{ url('frica.contact') }}">Contact Us</a></div>
+            </div>
+            <div class="col-md-4">
+              <div class="image_2"><img src="/drupal-10.1.2/themes/shop/images/img-4.png" style="width:100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container">
+          <div class="row border_1">
+            <div class="col-md-4">
+              <div class="image_1"><img src="/drupal-10.1.2/themes/shop/images/img-1.png" style="width:100%"></div>
+            </div>
+            <div class="col-md-4">
+              <h1 class="banner_taital">Computers</h1>
+              <div class="buynow_bt active"><a href="{{ url('frica.computers') }}">Buy Now</a></div>
+              <div class="contact_bt"><a href="{{ url('frica.contact') }}">Contact Us</a></div>
+            </div>
+            <div class="col-md-4">
+              <div class="image_2"><img src="/drupal-10.1.2/themes/shop/images/img-2.png" style="width:100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+      <i class="fa fa-angle-left"></i>
+    </a>
+    <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+      <i class="fa fa-angle-right"></i>
+    </a>
+  </div>
+</div>
+<!-- banner section end -->
+<!-- catagary section start -->
+<div class="catagary_section layout_padding">
+  <div class="container">
+    <div class="catagary_main">
+      <div class="catagary_left">
+        <h2 class="categary_text">Category</h2>
+      </div>
+      <div class="catagary_right">
+        <div class="catagary_menu">
+          <ul>
+            <li><a href="{{ url('frica.man_clothes.list') }}">Man's Fashion</a></li>
+            <li><a href="{{ url('frica.woman_clothes.list') }}">Woman Fashion</a></li>
+            <li><a href="{{ url('frica.beauties') }}">Beauty</a></li>
+            <li><a href="{{ url('frica.mobiles') }}">Mobile</a></li>
+            <li><a href="{{ url('frica.computers') }}">Computer</a></li>
+            <li><a href="{{ url('frica.watches') }}">Watch</a></li>
+            <li><a href="{{ url('frica.kitchens') }}">Kitchen</a></li>
+            <li><a href="{{ url('frica.sports') }}">Sport</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="catagary_section_2">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-md-4">
+        <div class="box_man">
+          <h3 class="mobile_text">Mobile</h3>
+          {% for mobile in data.home_mobiles %}
+            <div class="mobile_img"><a href="{{ url('frica.product_detail', {'idSP': mobile.idSP}) }}"><img src="/drupal-10.1.2/themes/shop/images/{{ mobile.img }}"></a></div>
+            <div class="cart_main">
+              <div class="cart_bt"><a href="{{ url('frica.cart') }}">Add To Cart</a></div>
+              <h4 class="samsung_text">{{ mobile.name }}</h4>
+              <h6 class="rate_text"><a href="#">${{ mobile.promotional_price|number_format(0, '.', ',') }}</a></h6>
+              <h6 class="rate_text_1">${{ mobile.price|number_format(0, '.', ',') }}</h6>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="box_man">
+          <h3 class="mobile_text">Watch</h3>
+          {% for watch in data.home_watches %}
+            <div class="watch_img"><a href="{{ url('frica.product_detail', {'idSP': watch.idSP}) }}"><img src="/drupal-10.1.2/themes/shop/images/{{ watch.img }}"></a></div>
+            <div class="cart_main">
+              <div class="cart_bt"><a href="{{ url('frica.cart') }}">Add To Cart</a></div>
+              <h4 class="samsung_text">{{ watch.name }}</h4>
+              <h6 class="rate_text"><a href="#">${{ watch.promotional_price|number_format(0, '.', ',') }}</a></h6>
+              <h6 class="rate_text_1">${{ watch.price|number_format(0, '.', ',') }}</h6>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="box_man">
+          <h3 class="mobile_text">Camera</h3>
+          {% for camera in data.home_cameras %}
+            <div class="camera_img"><a href="{{ url('frica.product_detail', {'idSP': camera.idSP}) }}"><img src="/drupal-10.1.2/themes/shop/images/{{ camera.img }}"></a></div>
+            <div class="cart_main">
+              <div class="cart_bt"><a href="{{ url('frica.cart') }}">Add To Cart</a></div>
+              <h4 class="samsung_text">{{ camera.name }}</h4>
+              <h6 class="rate_text"><a href="#">${{ camera.promotional_price|number_format(0, '.', ',') }}</a></h6>
+              <h6 class="rate_text_1">${{ camera.price|number_format(0, '.', ',') }}</h6>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- catagary section end -->
+<!-- computers section start -->
+{% set totalProducts = home|length %}
+{% set productsPerPage = 6 %}
+{% set totalPages = (totalProducts / productsPerPage)|round(0, 'ceil') %}
+{% set current_page = app.request.query.get('page') ? app.request.query.get('page') : 1 %}
+{% set offset = (current_page - 1) * productsPerPage %}
+{% set productsForCurrentPage = home|slice(offset, productsPerPage) %}
+
+<div class="computers_section layout_padding">
+  <div class="container">
+    <h1 class="computers_taital">Computer</h1>
+  </div>
+</div>
+<div class="computers_section_2">
+  <div class="container-fluid">
+    <div class="computer_main">
+      <div class="row">
+        {% for computer in data.home_computers %} {#data.productsForCurrentPage#}
+          <div class="col-md-4">
+            <div class="computer_img"><img src="/drupal-10.1.2/themes/shop/images/{{ computer.img }}"></div>
+            <h4 class="computer_text">{{ computer.idLSP }}</h4>
+            <div class="computer_text_main">
+              <h4 class="dell_text">{{ computer.name }}</h4>
+              <h6 class="price_text"><a href="#">${{ computer.promotional_price|number_format(0, '.', ',') }}</a></h6>
+              <h6 class="price_text_1"><a href="#">${{ computer.price|number_format(0, '.', ',') }}</a></h6>
+            </div>
+            <div class="cart_bt_1"><a href="{{ url('frica.cart', {'idSP': computer.idSP}) }}">Add To Cart</a></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- computers section end -->
+<!-- mans clothes section start -->
+<div class="mans_section layout_padding">
+  <div class="container">
+    <h1 class="computers_taital">Man’s clothes</h1>
+  </div>
+</div>
+<div class="mans_section_2">
+  <div class="container-fluid">
+    <div class="mans_main">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="offer_text">Best  Offer Every Man’s Iteams</h1>
+          <p class="lorem_text">There are many variations of passages of Lorem Ipsum available,but the majority have</p>
+          <div class="read_bt"><a href="{{ url('frica.man_clothes.list') }}">Buy Now</a></div>
+        </div>
+        <div class="col-md-6">
+          <div class="image_3"><img src="/drupal-10.1.2/themes/shop/images/img-3.png"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- mans clothes section end -->
+<!-- womans clothes section start -->
+<div class="mans_section layout_padding">
+  <div class="container">
+    <h1 class="computers_taital">Woman’s clothes</h1>
+  </div>
+</div>
+<div class="mans_section_2">
+  <div class="container-fluid">
+    <div class="mans_main">
+      <div class="row">
+        <div class="col-md-6">
+          <h1 class="offer_text">Best  Offer Every Woman’s Iteams</h1>
+          <p class="lorem_text">There are many variations of passages of Lorem Ipsum available,but the majority have</p>
+          <div class="read_bt"><a href="{{ url('frica.woman_clothes.list') }}">Buy Now</a></div>
+        </div>
+        <div class="col-md-6">
+          <div class="image_3"><img src="/drupal-10.1.2/themes/shop/images/img-4.png"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- womans clothes section end -->

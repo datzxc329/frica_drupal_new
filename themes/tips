@@ -1,0 +1,16 @@
+controller, model in drupal
+tạo form từng cái frica-html
+
+test bug trong controller:
++ check controller -> form -> model
++ check validate with print_r and die before submitForm
+
+điều chỉnh để http://localhost/drupal-10.1.2/home cũng là http://localhost/drupal-10.1.2/ (gợi ý trong file index.php kế bên routes.php trong hl)
+
+html.html.twig lines 54 -> 86
+
+add css, js from themes to modules with attached
+
+3 icon, phân trang, cart, payment, product_details
+
+error message sửa lại cho đẹp

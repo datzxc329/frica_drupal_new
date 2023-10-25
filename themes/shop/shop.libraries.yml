@@ -1,0 +1,37 @@
+custom-library:
+  version: 1.x
+  css:
+    theme:
+      css/animate.min.css: { }
+      css/bootstrap.css: { }
+      css/bootstrap-grid.css: { }
+      css/bootstrap-reboot.css: { }
+      css/default-skin.css: { }
+      css/font-awesome.min.css: { }
+      css/icomoon.css: { }
+      css/jquery.fancybox.min.css: { }
+      css/jquery.mCustomScrollbar.min.css: { }
+      css/jquery-ui.css: { }
+      css/meanmenu.css: { }
+      css/nice-select.css: { }
+      css/normalize.css: { }
+      css/owl.carousel.min.css: { }
+      css/owl.theme.default.min.css: { }
+      css/responsive.css: { }
+      css/slick.css: { }
+      css/style.css: { }
+  js:
+    js/bootstrap.bundle.js: { }
+    js/bootstrap.js: { }
+    js/custom.js: { }
+    js/jquery.mCustomScrollbar.concat.min.js: { }
+    js/jquery.min.js: { }
+    js/jquery.validate.js: { }
+    js/jquery-3.0.0.min.js: { }
+    js/modernizer.js: { }
+    js/owl.carousel.js: { }
+    js/plugin.js: { }
+    js/popper.min.js: { }
+    js/slider-setting.js: { }
+
+

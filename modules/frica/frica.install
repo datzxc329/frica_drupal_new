@@ -1,0 +1,51 @@
+<?php
+
+function contact_install(): void
+{
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+function contact_uninstall(): void
+{
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+function contact_schema() {
+  $schema['contact'] = [
+    'description' => 'Table description.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique record ID.',
+      ],
+      'contact_name' => [
+        'type' => 'varchar_ascii',
+        'length' => 30,
+        'default' => '',
+        'description' => 'Contact name.',
+      ],
+      'contact_email' => [
+        'type' => 'varchar_ascii',
+        'length' => 30,
+        'default' => '',
+        'description' => 'Contact email.',
+      ],
+      'contact_phone' => [
+        'type' => 'varchar_ascii',
+        'length' => 100,
+        'default' => '',
+        'description' => 'Contact phone.',
+      ],
+      'contact_message' => [
+        'type' => 'varchar_ascii',
+        'default' => 0,
+        'description' => 'Contact message.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+

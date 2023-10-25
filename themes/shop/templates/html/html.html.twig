@@ -1,0 +1,247 @@
+{#{% extends 'themes/shop/templates/layouts/html--application.html.twig' %}#}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mobile metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <!-- site metas -->
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="/drupal-10.1.2/themes/shop/css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" type="text/css" href="/drupal-10.1.2/themes/shop/css/style.css">
+
+  <!-- Responsive-->
+  <link rel="stylesheet" href="/drupal-10.1.2/themes/shop/css/responsive.css">
+  <!-- fevicon -->
+  <link rel="icon" href="/drupal-10.1.2/themes/shop/images/fevicon.png" type="image/gif" />
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="/drupal-10.1.2/themes/shop/css/jquery.mCustomScrollbar.min.css">
+  <!-- Tweaks for older IEs-->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+  <!-- owl stylesheets -->
+  <link rel="stylesheet" href="/drupal-10.1.2/themes/shop/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/drupal-10.1.2/themes/shop/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- header section start -->
+<div class="header_section haeder_main">
+  <div class="container-fluid">
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="{{ url('frica.home') }}">Home</a>
+        <a href="{{ url('frica.computers') }}">Computers</a>
+        <a href="{{ url('frica.man_clothes.list') }}">Mans Clothes</a>
+        <a href="{{ url('frica.woman_clothes.list') }}">Womans Clothes</a>
+        <a href="{{ url('frica.contact') }}">Contact</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer; color: #fff;" onclick="openNav()"><img src="/drupal-10.1.2/themes/shop/images/toggle-icon.png"></span>
+      <a class="navbar-brand" href="{{ url('frica.home') }}"><img src="/drupal-10.1.2/themes/shop/images/logo.png"></a></a>
+      <form class="form-inline ">
+        <div class="login_text">
+          <ul>
+            <?php
+              if (!isset($_SESSION['user'])) {
+                <li><a href="{{ url('frica.login') }}"><img src="/drupal-10.1.2/themes/shop/images/user-icon.png"></a></li>
+              } else {
+                <li>
+                  <a href="javascript:void(0);" onclick="account()">
+                    <img src="/drupal-10.1.2/themes/shop/images/user-icon.png">
+                  </a>
+                </li>
+                <div id="accountForm" style="display: none;">
+                  <p>Xin chào, <span id="username">' . $_SESSION['user']['username'] . '</span>!</p>
+                  <button onclick="performLogout()">Đăng xuất</button>
+                  <button onclick="performProfile()">Thông tin cá nhân</button><!-- Thay đổi thành thẻ button -->
+                </div>';
+              }
+            ?>
+            <li><a href="{{ url('frica.cart') }}"><img src="/drupal-10.1.2/themes/shop/images/trolly-icon.png"></a></li>
+            <li>
+              <a href="javascript:void(0);" onclick="toggleSearch()">
+                <img src="/drupal-10.1.2/themes/shop/images/search-icon.png">
+              </a>
+            </li>
+          </ul>
+          <div class="search-form" id="searchForm">
+            <input type="text" name="query" id="search-box" placeholder="Tìm kiếm...">
+            <input type="hidden" name="controller" value="search">
+            <input type="hidden" name="action" value="search">
+            <button type="submit"><img src="/drupal-10.1.2/themes/shop/images/search-icon.png"></button>
+          </div>
+          <div id="suggestions-box"></div>
+        </div>
+      </form>
+
+    </nav>
+  </div>
+</div>
+<script>
+  var searchForm = document.getElementById('searchForm');
+  function toggleSearch() {
+    if (searchForm.style.display === 'block') {
+      searchForm.style.display = 'none';
+    } else {
+      searchForm.style.display = 'block';
+    }
+  }
+
+  $(document).ready(function() {
+    $("#search-box").keyup(function(){
+      var searchName = $(this).val();
+      $.ajax({
+        method: "POST",
+        url: "index.php?query=computers&controller=search&action=search", // Replace with the actual script name
+        data: { query: searchName }
+      })
+        .done(function(data){
+          $("#suggestions-box").show();
+          $("#suggestions-box").html(data);
+        });
+    });
+  });
+
+  function account() {
+    // Hiển thị hoặc ẩn form đăng nhập dựa trên trạng thái hiện tại
+    var accountForm = document.getElementById('accountForm');
+    if (accountForm.style.display === 'block') {
+      accountForm.style.display = 'none';
+    } else {
+      accountForm.style.display = 'block';
+    }
+  }
+  // function logout() {
+  //     window.location.href = 'index.php';
+  // }
+  function performLogout() {
+    fetch('index.php?controller=accounts&action=logout')
+      .then(response => {
+        if (response.ok) {
+          // Xử lý khi đăng xuất thành công, ví dụ: chuyển hướng người dùng đến trang khác.
+          window.location.href = 'index.php'; // Điều hướng người dùng đến trang chính sau khi đăng xuất
+        } else {
+          console.error('Đăng xuất thất bại');
+        }
+      })
+      .catch(error => {
+        console.error('Lỗi khi thực hiện đăng xuất:', error);
+      });
+  }
+  function performProfile() {
+    fetch('index.php?controller=accounts&action=profile')
+      .then(response => {
+        if (response.ok) {
+          // Xử lý khi đăng xuất thành công, ví dụ: chuyển hướng người dùng đến trang khác.
+          window.location.href = 'index.php'; // Điều hướng người dùng đến trang chính sau khi đăng xuất
+        } else {
+          console.error('Xem thông tin cá nhân thất bại');
+        }
+      })
+      .catch(error => {
+        console.error('Lỗi khi thực hiện việc xem thông tin cá nhân:', error);
+      });
+  }
+</script>
+<!-- header section end -->
+{{ page }}
+<!-- footer section start -->
+<div class="footer_section layout_padding margin_top_90">
+  <div class="container">
+    <div class="footer_logo_main">
+      <div class="footer_logo"><a href="{{ url('frica.home') }}"><img src="/drupal-10.1.2/themes/shop/images/footer-logo.png"></a></div>
+      <div class="social_icon">
+        <ul>
+          <li><a href="https://www.facebook.com/"><img src="/drupal-10.1.2/themes/shop/images/fb-icon.png"></a></li>
+          <li><a href="https://www.twitter.com/"><img src="/drupal-10.1.2/themes/shop/images/twitter-icon.png"></a></li>
+          <li><a href="https://www.linkedin.com/"><img src="/drupal-10.1.2/themes/shop/images/linkedin-icon.png"></a></li>
+          <li><a href="https://www.linkedin.com/"><img src="/drupal-10.1.2/themes/shop/images/linkedin-icon.png"></a></li>
+          <li><a href="https://www.instagram.com/"><img src="/drupal-10.1.2/themes/shop/images/instagram-icon.png"></a></li>
+          <li><a href="https://www.youtube.com/"><img src="/drupal-10.1.2/themes/shop/images/youtub-icon.png"></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer_section_2">
+      <div class="row">
+        <div class="col-lg-3 col-sm-6">
+          <h4 class="adderss_text">About</h4>
+          <p class="ipsum_text">consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation u</p>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <h4 class="adderss_text">Menu</h4>
+          <div class="footer_menu">
+            <ul>
+              <li><a href="{{ url('frica.home') }}">Home</a></li>
+              <li><a href="{{ url('frica.computers') }}">Computers</a></li>
+              <li><a href="{{ url('frica.man_clothes.list') }}">Mans Clothes</a></li>
+              <li><a href="{{ url('frica.woman_clothes.list') }}">Womans Clothes</a></li>
+              <li><a href="{{ url('frica.contact') }}">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <h4 class="adderss_text">Useful Link</h4>
+          <div class="footer_menu">
+            <ul>
+              <li><a href="#">Adipiscing</a></li>
+              <li><a href="#">Elit, sed do</a></li>
+              <li><a href="#">Eiusmod</a></li>
+              <li><a href="#">Tempor</a></li>
+              <li><a href="#">incididunt</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6">
+          <h4 class="adderss_text">Contact</h4>
+          <div class="call_text"><img src="/drupal-10.1.2/themes/shop/images/map-icon.png"><span class="paddlin_left_0"><a href="#">London 145 United Kingdom</a></span></div>
+          <div class="call_text"><img src="/drupal-10.1.2/themes/shop/images/call-icon.png"><span class="paddlin_left_0"><a href="#">+7586656566</a></span></div>
+          <div class="call_text"><img src="/drupal-10.1.2/themes/shop/images/mail-icon.png"><span class="paddlin_left_0"><a href="#">volim@gmail.com</a></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- footer section end -->
+<!-- copyright section start -->
+<div class="copyright_section">
+  <div class="container">
+    <p class="copyright_text">2020 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a></p>
+  </div>
+</div>
+<!-- copyright section end -->
+<!-- Javascript files-->
+<script src="/drupal-10.1.2/themes/shop/js/jquery.min.js"></script>
+<script src="/drupal-10.1.2/themes/shop/js/popper.min.js"></script>
+<script src="/drupal-10.1.2/themes/shop/js/bootstrap.bundle.min.js"></script>
+<script src="/drupal-10.1.2/themes/shop/js/jquery-3.0.0.min.js"></script>
+<script src="/drupal-10.1.2/themes/shop/js/plugin.js"></script>
+<!-- sidebar -->
+<script src="/drupal-10.1.2/themes/shop/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/drupal-10.1.2/themes/shop/js/custom.js"></script>
+<!-- javascript -->
+<script src="/drupal-10.1.2/themes/shop/js/owl.carousel.js"></script>
+<script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "100%";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+</script>
+</body>
+</html>

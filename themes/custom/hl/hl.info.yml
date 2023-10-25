@@ -1,0 +1,7 @@
+name: 'hl'
+type: theme
+description: 'A custom Drupal theme for Frica website.'
+core_version_requirement: ^9 || ^10
+base theme: stable
+package: Custom
+

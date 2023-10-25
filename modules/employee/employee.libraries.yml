@@ -1,0 +1,8 @@
+list:
+  css:
+    theme:
+      css/datatables.min.css: {}
+      css/employee.css: {}
+  js:
+    js/datatables.min.js: {}
+    js/employee.js: {}

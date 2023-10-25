@@ -1,0 +1,12 @@
+{% for product in data.product_details %}
+  <p><a href="{{ url('frica.home') }}">Quay lại trang chủ</a></p>
+  <h1>Tên: {{ product.name }}</h1>
+  <p>Số lượng: {{ product.quantity }}</p>
+  <p>Mô tả: {{ product.description }}</p>
+  <p>Giá: {{ product.price|number_format }} VNĐ</p>
+  <p>Thông tin khác: </p>
+  <div class="cart_bt_1">
+    <a href="{{ path('frica.cart', {'idSP': product.idSP}) }}">Add To Cart</a>
+  </div>
+  <img src="/drupal-10.1.2/themes/shop/images/{{ product.img }}">
+{% endfor %}
