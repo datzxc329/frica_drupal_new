@@ -1,6 +1,7 @@
 name: Frica Module
 type: module
-description: 'Frica Theme for My Website.'
+description: 'Frica for My Website.'
 package: Custom
 core_version_requirement: ^10
 theme: shop
+

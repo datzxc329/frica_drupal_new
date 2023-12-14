@@ -31,7 +31,7 @@ class WomanClothesController extends ControllerBase
     return [
       '#theme' => 'woman_clothes_list',
       '#data' => [
-        'woman_clothes' => $womanclothesModel->showWomanClothes()
+        'woman_clothes' => $womanclothesModel->showProductsByCategory(3)
       ],
       '#attached' => [
       ],

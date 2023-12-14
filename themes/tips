@@ -7,10 +7,15 @@ test bug trong controller:
 
 điều chỉnh để http://localhost/drupal-10.1.2/home cũng là http://localhost/drupal-10.1.2/ (gợi ý trong file index.php kế bên routes.php trong hl)
 
-html.html.twig lines 54 -> 86
+3 icon, phân trang
 
-add css, js from themes to modules with attached
+error message, product detail sửa lại cho đẹp
 
-3 icon, phân trang, cart, payment, product_details
+-trong CartController phần order_details bị lỗi
+-css của form cart và checkout k load được -> sửa tên class trong file main.css để dùng
 
-error message sửa lại cho đẹp
+
+
+try catch model
+coupon
+admin qlsp

@@ -1,12 +1,14 @@
-{% for product in data.product_details %}
-  <p><a href="{{ url('frica.home') }}">Quay lại trang chủ</a></p>
-  <h1>Tên: {{ product.name }}</h1>
-  <p>Số lượng: {{ product.quantity }}</p>
-  <p>Mô tả: {{ product.description }}</p>
-  <p>Giá: {{ product.price|number_format }} VNĐ</p>
-  <p>Thông tin khác: </p>
-  <div class="cart_bt_1">
-    <a href="{{ path('frica.cart', {'idSP': product.idSP}) }}">Add To Cart</a>
-  </div>
-  <img src="/drupal-10.1.2/themes/shop/images/{{ product.img }}">
-{% endfor %}
+
+{{ attach_library('shop/product-details-styling') }}
+<h1>Tên: {{ data.product_detail.name }}</h1>
+<p>Số lượng: {{ data.product_detail.quantity }}</p>
+<p>Mô tả: {{ data.product_detail.description }}</p>
+<p>Giá: {{ data.product_detail.price|number_format }} VNĐ</p>
+<p>Thông tin khác: </p>
+<img src="{{ file_url(directory ~ '/images/' ~ data.product_detail.img) }}">
+
+<div class="cart_button">
+  <a href="{{ url('frica.cart', {'idSP': data.product_detail.idSP}) }}">Add To Cart</a>
+</div>
+<p><a href="{{ url('frica.home') }}">Quay lại trang chủ</a></p>
+

@@ -1,0 +1,88 @@
+<form method="post">
+  <div class="container grid grid-cols-12 gap-6 pb-14 mt-10">
+    <div class="col-span-12 md:col-span-6 lg:col-span-8">
+      <h4 class="bg-[#E9E4E4] px-3 py-2">Billing details</h4>
+      <div>
+        <div class="sm:flex md:block lg:flex gap-6 mt-6">
+          <div class="w-full sm:w-1/2 md:w-full lg:w-1/2">
+            <label for="first_name">First Name <span class="text-primary">*</span></label>
+            {{ data.form.checkout_firstname }}
+          </div>
+          <div class="w-full sm:w-1/2 md:w-full lg:w-1/2 mt-6 sm:mt-0 md:mt-6 lg:mt-0">
+            <label for="last_name">Last Name <span class="text-primary">*</span></label>
+            {{ data.form.checkout_lastname }}
+          </div>
+        </div>
+        <div class="mt-4">
+          <label for="company_name">Company Name</label>
+          {{ data.form.checkout_company_name }}
+        </div>
+        <div class="mt-4">
+          <label for="county_region">County/Region <span class="text-primary">*</span></label>
+          {{ data.form.checkout_country_region }}
+        </div>
+        <div class="mt-4">
+          <label for="street_addr">Street Address <span class="text-primary">*</span></label>
+          {{ data.form.checkout_street_address }}
+        </div>
+        <div class="mt-4">
+          <label for="town_city">Town/City <span class="text-primary">*</span></label>
+  {#        <input class="w-full text-sm border border-[#E9E4E4] rounded focus:ring-0 focus:border-primary mt-2"#}
+  {#               type="text" id="town_city">#}
+          {{ data.form.checkout_town_city }}
+        </div>
+        <div class="mt-4">
+          <label for="zip_code">Zip Code <span class="text-primary">*</span></label>
+  {#        <input class="w-full text-sm border border-[#E9E4E4] rounded focus:ring-0 focus:border-primary mt-2"#}
+  {#               type="text" id="zip_code">#}
+          {{ data.form.checkout_zipcode }}
+        </div>
+        <div class="mt-4">
+          <label for="phone_number">Phone Number <span class="text-primary">*</span></label>
+  {#        <input class="w-full text-sm border border-[#E9E4E4] rounded focus:ring-0 focus:border-primary mt-2"#}
+  {#               type="text" id="phone_number">#}
+          {{ data.form.checkout_phone }}
+        </div>
+        <div class="mt-4">
+          <label for="email_addr">Email Address <span class="text-primary">*</span></label>
+  {#        <input class="w-full text-sm border border-[#E9E4E4] rounded focus:ring-0 focus:border-primary mt-2"#}
+  {#               type="text" id="email_addr">#}
+          {{ data.form.checkout_email }}
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-12 md:col-span-6 lg:col-span-4">
+      <h4 class="bg-[#E9E4E4] px-3 py-2">Your Order</h4>
+      <div class="border border-[#E9E4E4] px-4 py-6 mt-4">
+        <h4 class="uppercase border-b border-[#E9E4E4] pb-2">product</h4>
+        {% for cartItem in data.cartItems %}
+          <div class="flex justify-between mt-5">
+            <div class="checkorder_cont">
+              <h5>{{ cartItem.name }}</h5>
+            </div>
+            <p class="font-semibold">${{ cartItem.quantity * cartItem.promotional_price }}</p>
+          </div>
+        {% endfor %}
+
+        <div class="flex justify-between border-b pb-3 mt-5">
+          <h5 class="font-semibold uppercase">Subtotal</h5>
+          <p class="font-semibold">${{ data.subtotal }}</p>
+        </div>
+
+        <div class="flex justify-between border-b pb-3 mt-5">
+          <h5 class="font-semibold uppercase">Total</h5>
+          <p class="font-semibold">${{ data.subtotal }}</p>
+        </div>
+
+        <div class="mt-4">
+  {#        <button class="default_btn w-full">place order</button>#}
+          {{ data.form.checkout_button }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ data.form.form_id }}
+  {{ data.form.form_build_id }}
+  {{ data.form.form_token }}
+</form>

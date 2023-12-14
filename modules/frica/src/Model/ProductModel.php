@@ -5,82 +5,56 @@ use Drupal\Core\Database\Database;
 use Exception;
 
 class ProductModel{
-  function showManClothes(): array{
+
+  function showProductsInHome(): array{
     $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
+    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price, category.name as category_name
                                       FROM product
-                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 2", [
+                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE flag = 1", [
     ]);
     return $query->fetchAll();
   }
-  function showComputers(): array{
+  function getProductDetailById($idSP){
     $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
-                                    FROM product
-                                    INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 1", [
+    $query = $database->query("SELECT * FROM product WHERE idSP = :idSP", [
+      ':idSP' => $idSP,
     ]);
-    return $query->fetchAll();
+    return $query->fetchAssoc();
   }
-  function showWomanClothes(): array{
+  function showProductsByCategory(int $categoryId): array {
     $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
-                                      FROM product
-                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 3", [
-    ]);
-    return $query->fetchAll();
-  }
-  function showMobiles(): array{
-    $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
-                                      FROM product
-                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 4", [
+    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price, category.name as category_name
+                              FROM product
+                              INNER JOIN category ON product.idLSP = category.idLSP
+                              WHERE product.idLSP = :category_id", [
+      ':category_id' => $categoryId,
     ]);
     return $query->fetchAll();
   }
 
-  function showCameras(): array{
-    $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
-                                      FROM product
-                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 5", [
-    ]);
-    return $query->fetchAll();
+  function insert($data)
+  {
+    $conn = Database::getConnection();
+    return $conn->insert('product')
+      ->fields($data)->execute();
   }
-
-  function showWatches(): array{
-    $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
-                                      FROM product
-                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 6", [
-    ]);
-    return $query->fetchAll();
-  }
-
-  function showKitchens(): array{
-    $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
-                                      FROM product
-                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 7", [
-    ]);
-    return $query->fetchAll();
-  }
-  function showSports(): array{
-    $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
-                                      FROM product
-                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 8", [
-    ]);
-    return $query->fetchAll();
-  }
-  function showBeauties(): array{
-    $database = \Drupal::database();
-    $query = $database->query("SELECT product.idSP, product.name, product.img, product.price, product.promotional_price
-                                      FROM product
-                                      INNER JOIN category ON product.idLSP = category.idLSP WHERE product.idLSP = 9", [
-    ]);
-    return $query->fetchAll();
-  }
-  function getProductDetailById(){
-
-  }
+//  function delete($idSP)
+//  {
+//    $conn = Database::getConnection();
+//    return $conn->delete('product')
+//      ->condition('idSP', $idSP)->execute();
+//  }
+//  function update($idSP, $data)
+//  {
+//    $conn = Database::getConnection();
+//    return $conn->update('product')
+//      ->condition('idSP', $idSP)->execute();
+//  }
+//  public function updateCartItemQuantity($cartId, $newQuantity) {
+//    // Perform an SQL update query to update the quantity in the cart table.
+//    $query = db_update('my_module_cart')
+//      ->fields(['quantity' => $newQuantity])
+//      ->condition('cart_id', $cartId)
+//      ->execute();
+//  }
 }

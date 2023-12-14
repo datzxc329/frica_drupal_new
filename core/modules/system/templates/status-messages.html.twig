@@ -21,27 +21,104 @@
  * @ingroup themeable
  */
 #}
+{#<div data-drupal-messages>#}
+{#{% for type, messages in message_list %}#}
+{#  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>#}
+{#    {% if type == 'error' %}#}
+{#      <div role="alert">#}
+{#    {% endif %}#}
+{#    {% if status_headings[type] %}#}
+{#      <h2 class="visually-hidden">{{ status_headings[type] }}</h2>#}
+{#    {% endif %}#}
+{#    {% if messages|length > 1 %}#}
+{#      <ul>#}
+{#        {% for message in messages %}#}
+{#          <li>{{ message }}</li>#}
+{#        {% endfor %}#}
+{#      </ul>#}
+{#    {% else %}#}
+{#      {{ messages|first }}#}
+{#    {% endif %}#}
+{#    {% if type == 'error' %}#}
+{#      </div>#}
+{#    {% endif %}#}
+{#  </div>#}
+{#{% endfor %}#}
+{#</div>#}
+
+<style>
+  .custom-alert {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f44336; /* Red background color for error messages */
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    z-index: 9999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-alert.error {
+    background-color: #f44336; /* Red for error messages */
+  }
+
+  .custom-alert.warning {
+    background-color: #ff9800; /* Orange for warning messages */
+  }
+
+  .custom-alert.success {
+    background-color: #4CAF50; /* Green for success messages */
+  }
+
+  .custom-alert h2 {
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  .custom-alert ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .custom-alert li {
+    margin: 5px 0;
+  }
+
+  .alert-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+</style>
+
 <div data-drupal-messages>
-{% for type, messages in message_list %}
-  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
-    {% if type == 'error' %}
-      <div role="alert">
-    {% endif %}
-    {% if status_headings[type] %}
-      <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
-    {% endif %}
-    {% if messages|length > 1 %}
-      <ul>
-        {% for message in messages %}
-          <li>{{ message }}</li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      {{ messages|first }}
-    {% endif %}
-    {% if type == 'error' %}
+  {% for type, messages in message_list %}
+    <div class="custom-alert {{ type }}" role="contentinfo">
+      <div aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
+        <div class="alert-content">
+          {% if status_headings[type] %}
+            <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+          {% endif %}
+          <div class="message">
+            {% if messages|length > 1 %}
+              <ul>
+                {% for message in messages %}
+                  <li>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% else %}
+              {{ messages|first }}
+            {% endif %}
+          </div>
+        </div>
       </div>
-    {% endif %}
-  </div>
-{% endfor %}
+    </div>
+  {% endfor %}
 </div>
+
+

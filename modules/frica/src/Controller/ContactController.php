@@ -1,14 +1,6 @@
 <?php
-
 namespace Drupal\frica\Controller;
-
 use Drupal\Core\Controller\ControllerBase;
-//use Drupal\Frica\Model\ContactModel;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
-/**
- * Returns responses for the contact form routes.
- */
 class ContactController extends ControllerBase
 {
   public function contact()
@@ -21,7 +13,6 @@ class ContactController extends ControllerBase
       ],
       '#attached' => [
         'library' => [
-          /*'frica/contactStyles',*/
         ],
       ],
       '#cache' => array(

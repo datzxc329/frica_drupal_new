@@ -11,7 +11,7 @@ class ComputersController extends ControllerBase
     return [
       '#theme' => 'computers',
       '#data' => [
-        'computers' => $computerModel->showComputers(),
+        'computers' => $computerModel->showProductsByCategory(1),
       ],
       '#attached' => [],
       '#cache' => array(

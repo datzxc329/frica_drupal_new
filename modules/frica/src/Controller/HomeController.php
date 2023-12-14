@@ -1,13 +1,9 @@
 <?php
-
 namespace Drupal\frica\Controller;
-
 use Drupal\Core\Controller\ControllerBase;
-
 //use Drupal\Frica\Model\ContactModel;
 use Drupal\frica\Model\ProductModel;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-
+use Symfony\Component\HttpFoundation\Request;
 /**
  * Returns responses for the contact form routes.
  */
@@ -19,10 +15,8 @@ class HomeController extends ControllerBase
     return [
       '#theme' => 'home',
       '#data' => [
-        'home_computers' => $model->showComputers(),
-        'home_mobiles' => $model->showMobiles(),
-        'home_watches' => $model->showWatches(),
-        'home_cameras' => $model->showCameras(),
+        'home_computers' => $model->showProductsByCategory(1),
+        'home_products' => $model->showProductsInHome(),
       ],
       '#attached' => [],
       '#cache' => array(

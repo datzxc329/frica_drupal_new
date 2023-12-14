@@ -1,101 +1,20 @@
-<?php
-?>
-<style>
-  .cart_bt_1 form{
-    width: 100%;
-    float: left;
-    font-size: 14px;
-    color: #ffffff;
-    background-color: #ff5d68;
-    text-align: center;
-    padding: 8px 4px;
-  }
-  .cart_bt_1 button{
-    width: 100%;
-    float: left;
-    font-size: 14px;
-    color: #ffffff;
-    background-color: #ff5d68;
-    text-align: center;
-    padding: 8px 4px;
-  }
-  /* CSS cho form khi hover */
-  .cart_bt_1 form:hover {
-    background-color: #BBBBBB; /* Màu nền thay đổi khi hover */
-  }
-  /* CSS cho nút khi hover */
-  .cart_bt_1 button:hover {
-    background-color: #BBBBBB; /* Màu nền thay đổi khi hover */
-    cursor: pointer; /* Biểu tượng con trỏ khi hover */
-  }
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    text-align: center;
-  }
-  .pagination a {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px 10px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  .pagination a:hover {
-    background-color: #0056b3;
-  }
-  .current-page {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px 10px;
-    background-color: #0056b3;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-</style>
+
+{{ attach_library('shop/computers-to-end-styling') }}
 <!-- man_clothes section start -->
-<div class="computers_section layout_padding">
-  <div class="container">
-    <h1 class="computers_taital">Man's Clothes</h1>
-  </div>
-</div>
 <div class="computers_section_2">
   <div class="container-fluid">
     <div class="computer_main">
       <div class="row">
-        {% for man in data.man_clothes %}
+        {% for man in data.man_clothes %} {#data.productsForCurrentPage#}
           <div class="col-md-4">
-            <div class="computer_img">
-              <!-- Thêm đường dẫn đến trang chi tiết sản phẩm -->
-              <a href="{{ url('frica.product_detail', {'idSP': man.idSP}) }}">
-                <img src='/drupal-10.1.2/themes/shop/images/{{ man.img }}'>
-              </a>
-            </div>
-            <h4 class="computer_text">
-              <!-- Thêm đường dẫn đến trang chi tiết sản phẩm -->
-              <a href="{{ url('frica.product_detail', {'idSP': man.idSP}) }}">
-                {{ man.name }}
-              </a>
-            </h4>
+            <div class="computer_img"><a href="{{ url('frica.product_detail', {'idSP': man.idSP}) }}"><img src="{{ file_url(directory ~ '/images/' ~ man.img) }}"></a></div>
+            <h4 class="computer_text">{{ man.idLSP }}</h4>
             <div class="computer_text_main">
-              <h4 class="dell_text">
-                Còn lại: {{ man.quantity }}
-              </h4>
-              <h6 class="price_text">
-                Giá: {{ man.price|number_format(0, '.', ',') }} VNĐ
-              </h6>
+              <h4 class="dell_text"><a href="{{ url('frica.product_detail', {'idSP': man.idSP}) }}">{{ man.name }}</a></h4>
+              <h6 class="price_text">${{ man.promotional_price|number_format(0, '.', ',') }}</h6>
+              <h6 class="price_text_1">${{ man.price|number_format(0, '.', ',') }}</h6>
             </div>
-            {% if man.quantity > 0 %}
-              <div class="cart_bt_1"><a href="{{ url('frica.cart', {'idSP': man.idSP}) }}">Add To Cart</a></div>
-            {% else %}
-              <div class="cart_bt_1">
-                <span style="color: red">Đã hết hàng</span>
-              </div>
-            {% endif %}
+            <div class="cart_bt_1"><a href="{{ url('frica.cart', {'idSP': man.idSP}) }}">Add To Cart</a></div>
           </div>
         {% endfor %}
       </div>

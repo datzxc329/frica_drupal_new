@@ -27,7 +27,7 @@ frica.man_clothes:
   requirements:
     _permission: 'access content'
 frica.man_clothes.list:
-  path: '/man_clothes/list'
+  path: '/man_clothes_list'
   defaults:
     _controller: '\Drupal\frica\Controller\ManClothesController::man_clothes_list'
     _title: "Man's Clothes"
@@ -41,14 +41,14 @@ frica.woman_clothes:
   requirements:
     _permission: 'access content'
 frica.woman_clothes.list:
-  path: '/woman_clothes/list'
+  path: '/woman_clothes_list'
   defaults:
     _controller: '\Drupal\frica\Controller\WomanClothesController::woman_clothes_list'
     _title: "Woman's Clothes"
   requirements:
     _permission: 'access content'
 frica.product_detail:
-  path: '/product/{idSP}'
+  path: '/product_detail/{idSP}'
   defaults:
     _controller: '\Drupal\frica\Controller\ProductDetailController::product_detail'
     _title: 'Product Details'
@@ -140,9 +140,31 @@ frica.forgotpwd:
   requirements:
     _permission: 'access content'
 frica.cart:
-  path: '/cart'
+  path: '/shopping_cart/{idSP}'
   defaults:
-    _controller: '\Drupal\frica\Controller\CartController::cart'
-    _title: 'Cart'
+    _controller: '\Drupal\frica\Controller\CartController::shopping_cart'
+    _title: 'Shopping Cart'
+    idSP: 0
+  requirements:
+    _permission: 'access content'
+frica.checkout:
+  path: '/checkout'
+  defaults:
+    _controller: '\Drupal\frica\Controller\CartController::checkout'
+    _title: 'Shopping Cart'
+  requirements:
+    _permission: 'access content'
+frica.order_success:
+  path: '/order_success'
+  defaults:
+    _controller: '\Drupal\frica\Controller\CartController::order_success'
+    _title: 'Shopping Cart'
+  requirements:
+    _permission: 'access content'
+frica.product_management:
+  path: '/admin/product_management'
+  defaults:
+    _controller: '\Drupal\frica\Controller\CartController::product_management'
+    _title: 'Shopping Cart'
   requirements:
     _permission: 'access content'

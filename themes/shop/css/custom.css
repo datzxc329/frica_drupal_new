@@ -15,3 +15,328 @@
   color: #fefeff;
 }
 
+/* Style for the login form */
+ .login-form {
+   max-width: 300px;
+   margin: 0 auto;
+   padding: 20px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   background-color: #f7f7f7;
+ }
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.login-form label {
+  font-weight: bold;
+  display: block;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-form .btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.login-form p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Optional: Style links within the form */
+.login-form a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.login-form a:hover {
+  text-decoration: underline;
+}
+
+/*signup form*/
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.center-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.form-group button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+p {
+  text-align: center;
+}
+
+p a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/*pagination*/
+ .pagination {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 20px;
+   text-align: center;
+ }
+.pagination a {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.pagination a:hover {
+  background-color: #0056b3;
+}
+.current-page {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #0056b3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/*cart*/
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+  /* CSS cho bảng danh sách sản phẩm */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+  /* CSS cho các ô giá và số lượng */
+table td input[type="number"] {
+  border: white;
+  width: 60px;
+  text-align: center;
+}
+
+  /* CSS cho nút "Thanh toán" và liên kết "Continue Shopping" */
+.payments {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*Computers to end all category (except contact and home)*/
+.cart_bt_1 form{
+  width: 100%;
+  float: left;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #ff5d68;
+  text-align: center;
+  padding: 8px 4px;
+}
+.cart_bt_1 button{
+  width: 100%;
+  float: left;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #ff5d68;
+  text-align: center;
+  padding: 8px 4px;
+}
+/* CSS cho form khi hover */
+.cart_bt_1 form:hover {
+  background-color: #BBBBBB; /* Màu nền thay đổi khi hover */
+}
+/* CSS cho nút khi hover */
+.cart_bt_1 button:hover {
+  background-color: #BBBBBB; /* Màu nền thay đổi khi hover */
+  cursor: pointer; /* Biểu tượng con trỏ khi hover */
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  text-align: center;
+}
+.pagination a {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.pagination a:hover {
+  background-color: #0056b3;
+}
+.current-page {
+  display: inline-block;
+  margin: 5px;
+  padding: 5px 10px;
+  background-color: #0056b3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+/*Product detail*/
+/* Định dạng cho tiêu đề */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Định dạng cho số lượng */
+p.quantity {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Định dạng cho mô tả */
+p.description {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Định dạng cho giá */
+p.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e83e8c;
+}
+
+/* Định dạng cho các yếu tố khác */
+p.additional-info {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Định dạng cho ảnh sản phẩm */
+img.product-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Định dạng cho nút "Add To Cart" */
+.cart_button a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e83e8c;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.cart_button a:hover {
+  background-color: #c13372;
+}
+
+/* Định dạng cho liên kết "Quay lại trang chủ" */
+p.back-link a {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}

@@ -31,7 +31,7 @@ class ManClothesController extends ControllerBase
     return [
       '#theme' => 'man_clothes_list',
       '#data' => [
-        'man_clothes' => $manclothesModel->showManClothes()
+        'man_clothes' => $manclothesModel->showProductsByCategory(2)
       ],
       '#attached' => [
       ],

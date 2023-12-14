@@ -11,7 +11,7 @@ class OtherProductController extends ControllerBase
     return [
       '#theme' => 'mobiles',
       '#data' => [
-        'mobiles' => $mobiles->showMobiles(),
+        'mobiles' => $mobiles->showProductsByCategory(4),
       ],
       '#attached' => [],
       '#cache' => array(
@@ -25,7 +25,7 @@ class OtherProductController extends ControllerBase
     return [
       '#theme' => 'cameras',
       '#data' => [
-        'cameras' => $cameras->showCameras(),
+        'cameras' => $cameras->showProductsByCategory(5),
       ],
       '#attached' => [],
       '#cache' => array(
@@ -39,7 +39,7 @@ class OtherProductController extends ControllerBase
     return [
       '#theme' => 'watches',
       '#data' => [
-        'watches' => $watches->showWatches(),
+        'watches' => $watches->showProductsByCategory(6),
       ],
       '#attached' => [],
       '#cache' => array(
@@ -53,7 +53,7 @@ class OtherProductController extends ControllerBase
     return [
       '#theme' => 'kitchens',
       '#data' => [
-        'kitchens' => $kitchens->showKitchens(),
+        'kitchens' => $kitchens->showProductsByCategory(7),
       ],
       '#attached' => [],
       '#cache' => array(
@@ -67,7 +67,7 @@ class OtherProductController extends ControllerBase
     return [
       '#theme' => 'sports',
       '#data' => [
-        'sports' => $sports->showSports(),
+        'sports' => $sports->showProductsByCategory(8),
       ],
       '#attached' => [],
       '#cache' => array(
@@ -81,7 +81,7 @@ class OtherProductController extends ControllerBase
     return [
       '#theme' => 'beauties',
       '#data' => [
-        'beauties' => $beauties->showBeauties(),
+        'beauties' => $beauties->showProductsByCategory(9),
       ],
       '#attached' => [],
       '#cache' => array(

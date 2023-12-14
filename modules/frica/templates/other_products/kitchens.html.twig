@@ -1,62 +1,9 @@
 <?php
 ?>
 <style>
-  .cart_bt_1 form{
-    width: 100%;
-    float: left;
-    font-size: 14px;
-    color: #ffffff;
-    background-color: #ff5d68;
-    text-align: center;
-    padding: 8px 4px;
-  }
-  .cart_bt_1 button{
-    width: 100%;
-    float: left;
-    font-size: 14px;
-    color: #ffffff;
-    background-color: #ff5d68;
-    text-align: center;
-    padding: 8px 4px;
-  }
-  /* CSS cho form khi hover */
-  .cart_bt_1 form:hover {
-    background-color: #BBBBBB; /* Màu nền thay đổi khi hover */
-  }
-  /* CSS cho nút khi hover */
-  .cart_bt_1 button:hover {
-    background-color: #BBBBBB; /* Màu nền thay đổi khi hover */
-    cursor: pointer; /* Biểu tượng con trỏ khi hover */
-  }
-  .pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    text-align: center;
-  }
-  .pagination a {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px 10px;
-    background-color: #007BFF;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-  .pagination a:hover {
-    background-color: #0056b3;
-  }
-  .current-page {
-    display: inline-block;
-    margin: 5px;
-    padding: 5px 10px;
-    background-color: #0056b3;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-  }
+
 </style>
+{{ attach_library('shop/computers-to-end-styling') }}
 <!-- section start -->
 <div class="computers_section layout_padding">
   <div class="container">
@@ -69,12 +16,12 @@
       <div class="row">
         {% for kitchen in data.kitchens %} {#data.productsForCurrentPage#}
           <div class="col-md-4">
-            <div class="computer_img"><img src="/drupal-10.1.2/themes/shop/images/{{ kitchen.img }}"></div>
+            <div class="computer_img"><a href="{{ url('frica.product_detail', {'idSP': kitchen.idSP}) }}"><img src="{{ file_url(directory ~ '/images/' ~ kitchen.img) }}"></a></div>
             <h4 class="computer_text">{{ kitchen.idLSP }}</h4>
             <div class="computer_text_main">
-              <h4 class="dell_text">{{ kitchen.name }}</h4>
-              <h6 class="price_text"><a href="#">${{ kitchen.promotional_price|number_format(0, '.', ',') }}</a></h6>
-              <h6 class="price_text_1"><a href="#">${{ kitchen.price|number_format(0, '.', ',') }}</a></h6>
+              <h4 class="dell_text"><a href="{{ url('frica.product_detail', {'idSP': kitchen.idSP}) }}">{{ kitchen.name }}</a></h4>
+              <h6 class="price_text">${{ kitchen.promotional_price|number_format(0, '.', ',') }}</h6>
+              <h6 class="price_text_1">${{ kitchen.price|number_format(0, '.', ',') }}</h6>
             </div>
             <div class="cart_bt_1"><a href="{{ url('frica.cart', {'idSP': kitchen.idSP}) }}">Add To Cart</a></div>
           </div>

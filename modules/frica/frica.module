@@ -117,8 +117,26 @@ function frica_theme()
         'data' => []
       ]
     ],
-    'cart' => [
-      'template' => 'cart/cart',
+    'shopping_cart' => [
+      'template' => 'cart/shopping_cart',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'checkout' => [
+      'template' => 'cart/checkout',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'order_success' => [
+      'template' => 'cart/order_success',
+      'variables' => [
+        'data' => []
+      ]
+    ],
+    'product_management' => [
+      'template' => 'admin/product_management',
       'variables' => [
         'data' => []
       ]

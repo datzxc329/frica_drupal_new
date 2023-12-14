@@ -1,0 +1,99 @@
+
+<!-- shopping cart -->
+<h4 class="uppercase text-lg" style="text-align: center">Shopping Cart</h4>
+<br>
+
+<div class="container pb-10 mt-10">
+  <div class="grid grid-cols-12 gap-6">
+    <div class="col-span-12 lg:col-span-9">
+
+      <div class="hidden lg:flex justify-between bg-[#E9E4E4] py-2">
+        <p class="pl-44 font-semibold">Product</p>
+        <div class="flex gap-24">
+          <span class="font-semibold">Quantity</span>
+          <span class="pr-24 font-semibold">Total Price</span>
+        </div>
+      </div>
+      <!-- Your cart items loop -->
+{#      {% set subtotal = 0 %}#}
+      {% for cartItem in data.cartItems %}
+{#        {% set subtotal = subtotal + cartItem.promotional_price %}#}
+        <div class="sm:px-20 md:px-0">
+          <div class="border md:flex gap-16 lg:gap-28 items-center py-4 px-6 mt-6">
+            <!-- Display product information for each cart item -->
+            <div class="md:flex gap-8 items-center">
+              <div class="max-w-[80px] flex mx-auto">
+                <img loading="lazy" src="{{ file_url(directory ~ '/images/' ~ cartItem.img) }}" alt="{{ cartItem.name }}">
+              </div>
+              <div class="cart_cont">
+                <a href="{{ url('frica.product_detail', {'idSP': cartItem.idSP}) }}">
+                  <h5>{{ cartItem.name }}</h5>
+                </a>
+                <p class="text-primary font-medium">${{ cartItem.promotional_price }}</p>
+              </div>
+            </div>
+
+            <div class="flex gap-12 lg:gap-24 items-center">
+              <!-- quantity -->
+              <div class="flex pl-20">
+                <div class="border w-8 h-8 flex justify-center items-center">{{ cartItem.quantity }}</div>
+              </div>
+              <div class="flex gap-10 lg:gap-16">
+                <p class="text-primary font-semibold">{{ cartItem.quantity * cartItem.promotional_price }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+
+
+    </div>
+
+    <div class="col-span-12 lg:col-span-3 border p-4">
+      <div>
+        <h4 class="uppercase text-lg">Order Summary</h4>
+        <div class="space-y-2 border-b pb-3 mt-2">
+          <div class="flex justify-between">
+            <p class="font-medium">Subtotal</p>
+            <p class="font-medium">${{ data.subtotal }}</p>
+          </div>
+          <div class="flex justify-between">
+            <p class="font-medium">Delivery</p>
+            <p class="font-medium">Free</p>
+          </div>
+          <div class="flex justify-between">
+            <p class="font-medium">Tax</p>
+            <p class="font-medium">Free</p>
+          </div>
+        </div>
+        <div class="flex justify-between mt-2">
+          <p class="font-semibold">Total</p>
+          <p class="font-semibold">${{ data.subtotal }}</p>
+        </div>
+        <form method="post">
+          <div class="flex  w-full lg:max-w-sm rounded-lg overflow-hidden mt-4">
+{#            <input type="text" placeholder="Enter coupon"#}
+{#                   class="w-full border1 border-[#E9E4E4] text-xs focus:outline-none  focus:border-primary overflow-hidden">#}
+            {{ data.form.cart_coupon }}
+{#            <button#}
+{#              class="bg-primary1 border1 border-primary1 text-white1 rounded-br-lg text-xs uppercase px-41 sm:px-8 lg:px-4 hover:bg-white hover:text-primary hover:border-primary transition-all ">apply</button>#}
+            {{ data.form.cart_apply }}
+          </div>
+          {{ data.form.form_id }}
+          {{ data.form.form_build_id }}
+          {{ data.form.form_token }}
+        </form>
+        <div class="mt-8">
+          <a href="{{ url('frica.checkout') }}"
+             class="block w-full px-8 lg:px-2 xl:px-8 py-21 text-center1 bg-primary1 hover:bg-transparent text-white1 hover:text-primary hover:border-primary border1 transition duration-300 rounded-lg uppercase text-sm">Proccees
+            to checkout</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+

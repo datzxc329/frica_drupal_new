@@ -1,6 +1,6 @@
-name: Frica Theme
+name: Shop Theme
 type: theme
-description: 'Frica Theme for My Website.'
+description: 'Shop for My Website.'
 package: Custom
 core_version_requirement: ^10
 base theme: false
@@ -8,5 +8,15 @@ regions:
   content: Content
   right: Right sidebar
   footer: Footer First
+#  more region
 libraries:
-  - shop/custom-library
+  - shop/global
+  - shop/slide
+  - shop/contact-styling
+  - shop/login-styling
+  - shop/signup-styling
+  - shop/cart-styling
+  - shop/checkout-styling
+  - shop/computers-to-end-styling
+  - shop/pagination-styling
+  - shop/product-details-styling

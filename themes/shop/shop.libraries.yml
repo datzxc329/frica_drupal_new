@@ -1,4 +1,4 @@
-custom-library:
+global:
   version: 1.x
   css:
     theme:
@@ -34,4 +34,44 @@ custom-library:
     js/popper.min.js: { }
     js/slider-setting.js: { }
 
+slide:
+  version: 1.x
+  css:
+    theme:
+      https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css: { type: external }
 
+contact-styling:
+  version: 1.x
+  css:
+    theme:
+      css/custom.css: {}
+login-styling:
+  version: 1.x
+  css:
+    theme:
+      css/custom.css: {}
+signup-styling:
+  version: 1.x
+  css:
+    theme:
+      css/custom.css: {}
+computers-to-end-styling:
+  version: 1.x
+  css:
+    theme:
+      css/custom.css: {}
+pagination-styling:
+  version: 1.x
+  css:
+    theme:
+      css/custom.css: {}
+product-details-styling:
+  version: 1.x
+  css:
+    theme:
+      css/custom.css: {}
+cart-styling:
+  version: 1.x
+  css:
+    theme:
+      css/main.css: {}

@@ -1,21 +1,14 @@
 <?php
-
-
 namespace Drupal\frica\Controller;
-
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\frica\Model\ProductModel;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Database\Connection;
-
 class ProductDetailController extends ControllerBase {
-
   public function product_detail($idSP) {
-    $detail = new ProductModel();
+    $product_detail = new ProductModel();
     return [
       '#theme' => 'product_detail',
       '#data' => [
-        'product_detail' => $detail->getProductDetailById()
+        'product_detail' => $product_detail->getProductDetailById($idSP)
       ],
       '#attached' => [
       ],
@@ -25,4 +18,3 @@ class ProductDetailController extends ControllerBase {
     ];
   }
 }
-
